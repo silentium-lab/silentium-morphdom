@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2](https://github.com/silentium-lab/silentium-morphdom/compare/v0.0.1...v0.0.2) (2025-08-17)
+
+
+### Bug Fixes
+
+* **main:** fix badges ([0e8dbc2](https://github.com/silentium-lab/silentium-morphdom/commit/0e8dbc2653befb76f5ff609269e4f8697f8a9699))
+* **main:** fixed name ([a490dab](https://github.com/silentium-lab/silentium-morphdom/commit/a490dab3a6da673b7cb918bf5ffb377140d8dfd2))
+
 ### 0.0.1 (2025-08-17)
 
 
