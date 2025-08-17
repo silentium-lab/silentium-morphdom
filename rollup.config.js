@@ -2,7 +2,7 @@ import dts from "rollup-plugin-dts";
 import esbuild from "rollup-plugin-esbuild";
 import terser from "@rollup/plugin-terser";
 
-const name = "dist/silentium";
+const name = "dist/silentium-morphdom";
 
 const bundle = (config) => ({
   ...config,
