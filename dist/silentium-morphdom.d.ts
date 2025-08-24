@@ -1,8 +1,13 @@
-import { InformationType } from 'silentium';
+import { TheInformation, TheOwner } from 'silentium';
 
 /**
  * Represents a function that renders HTML string into an element
  */
-declare const render: (rootSrc: InformationType<HTMLElement>, htmlSrc: InformationType<string>) => InformationType<HTMLElement>;
+declare class Render extends TheInformation<HTMLElement> {
+    private rootSrc;
+    private htmlSrc;
+    constructor(rootSrc: TheInformation<HTMLElement>, htmlSrc: TheInformation<string>);
+    value(o: TheOwner<HTMLElement>): this;
+}
 
-export { render };
+export { Render };

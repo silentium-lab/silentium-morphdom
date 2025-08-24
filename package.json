@@ -55,6 +55,6 @@
   },
   "dependencies": {
     "morphdom": "^2.7.7",
-    "silentium": "^0.0.63"
+    "silentium": "^0.0.67"
   }
 }

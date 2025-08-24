@@ -1,17 +1,22 @@
 import morphdom from 'morphdom';
-import { all } from 'silentium';
+import { TheInformation, All, From } from 'silentium';
 
-const render = (rootSrc, htmlSrc) => {
-  return (o) => {
-    all(
-      rootSrc,
-      htmlSrc
-    )(([root, html]) => {
-      morphdom(root, html);
-      o(root);
-    });
-  };
-};
+class Render extends TheInformation {
+  constructor(rootSrc, htmlSrc) {
+    super(rootSrc, htmlSrc);
+    this.rootSrc = rootSrc;
+    this.htmlSrc = htmlSrc;
+  }
+  value(o) {
+    new All(this.rootSrc, this.htmlSrc).value(
+      new From(([root, html]) => {
+        morphdom(root, html);
+        o.give(root);
+      })
+    );
+    return this;
+  }
+}
 
-export { render };
+export { Render };
 //# sourceMappingURL=silentium-morphdom.mjs.map
