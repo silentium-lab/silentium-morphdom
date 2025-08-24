@@ -1,4 +1,4 @@
-import { TheInformation, TheOwner } from 'silentium';
+import { TheInformation, InformationType, OwnerType } from 'silentium';
 
 /**
  * Represents a function that renders HTML string into an element
@@ -6,8 +6,8 @@ import { TheInformation, TheOwner } from 'silentium';
 declare class Render extends TheInformation<HTMLElement> {
     private rootSrc;
     private htmlSrc;
-    constructor(rootSrc: TheInformation<HTMLElement>, htmlSrc: TheInformation<string>);
-    value(o: TheOwner<HTMLElement>): this;
+    constructor(rootSrc: InformationType<HTMLElement>, htmlSrc: InformationType<string>);
+    value(o: OwnerType<HTMLElement>): this;
 }
 
 export { Render };
