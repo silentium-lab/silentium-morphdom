@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/silentium-lab/silentium-morphdom/compare/v0.0.5...v0.0.6) (2025-10-04)
+
+
+### Bug Fixes
+
+* **main:** moving to fns ([32b09cb](https://github.com/silentium-lab/silentium-morphdom/commit/32b09cb47c89e0154d8b0eb8678d6769c61906aa))
+
 ### [0.0.5](https://github.com/silentium-lab/silentium-morphdom/compare/v0.0.4...v0.0.5) (2025-08-24)
 
 
