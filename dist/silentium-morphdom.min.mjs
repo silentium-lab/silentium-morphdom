@@ -1,2 +1,2 @@
-import r from"morphdom";import{TheInformation as t,All as o,From as e}from"silentium";class s extends t{constructor(r,t){super(r,t),this.rootSrc=r,this.htmlSrc=t}value(t){return new o(this.rootSrc,this.htmlSrc).value(new e(([o,e])=>{r(o,e),t.give(o)})),this}}export{s as Render};
+import o from"morphdom";import{all as m}from"silentium";const r=(r,t)=>i=>{m(r,t)(([m,r])=>{o(m,r),i(m)})};export{r as render};
 //# sourceMappingURL=silentium-morphdom.min.mjs.map
