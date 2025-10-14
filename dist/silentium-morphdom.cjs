@@ -3,15 +3,17 @@
 var morphdom = require('morphdom');
 var silentium = require('silentium');
 
-const render = (rootSrc, htmlSrc) => (user) => {
-  silentium.all(
-    rootSrc,
-    htmlSrc
-  )(([root, html]) => {
-    morphdom(root, html);
-    user(root);
-  });
-};
+function Render(rootSrc, htmlSrc) {
+  return (user) => {
+    silentium.All(
+      rootSrc,
+      htmlSrc
+    )(([root, html]) => {
+      morphdom(root, html);
+      user(root);
+    });
+  };
+}
 
-exports.render = render;
+exports.Render = Render;
 //# sourceMappingURL=silentium-morphdom.cjs.map

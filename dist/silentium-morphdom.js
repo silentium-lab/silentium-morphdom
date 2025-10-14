@@ -1,15 +1,17 @@
 import morphdom from 'morphdom';
-import { all } from 'silentium';
+import { All } from 'silentium';
 
-const render = (rootSrc, htmlSrc) => (user) => {
-  all(
-    rootSrc,
-    htmlSrc
-  )(([root, html]) => {
-    morphdom(root, html);
-    user(root);
-  });
-};
+function Render(rootSrc, htmlSrc) {
+  return (user) => {
+    All(
+      rootSrc,
+      htmlSrc
+    )(([root, html]) => {
+      morphdom(root, html);
+      user(root);
+    });
+  };
+}
 
-export { render };
+export { Render };
 //# sourceMappingURL=silentium-morphdom.js.map
