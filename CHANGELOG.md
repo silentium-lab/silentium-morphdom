@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/silentium-lab/silentium-morphdom/compare/v0.0.7...v0.0.8) (2025-10-14)
+
+
+### Bug Fixes
+
+* **main:** moving to uppercase ([378b290](https://github.com/silentium-lab/silentium-morphdom/commit/378b290a29bf451f66517d71dc5f608b38deef6b))
+
 ### [0.0.7](https://github.com/silentium-lab/silentium-morphdom/compare/v0.0.6...v0.0.7) (2025-10-11)
 
 
