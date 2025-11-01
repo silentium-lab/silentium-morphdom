@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.10](https://github.com/silentium-lab/silentium-morphdom/compare/v0.0.9...v0.0.10) (2025-11-01)
+
+
+### Bug Fixes
+
+* **main:** npm audit updates ([3612d3f](https://github.com/silentium-lab/silentium-morphdom/commit/3612d3fc3c64399b27cbbed46cef2b07a870f0b7))
+
 ### [0.0.9](https://github.com/silentium-lab/silentium-morphdom/compare/v0.0.8...v0.0.9) (2025-11-01)
 
 
