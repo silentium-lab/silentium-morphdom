@@ -1,16 +1,18 @@
 import morphdom from 'morphdom';
-import { All } from 'silentium';
+import { All, TransportParent, Event } from 'silentium';
 
-function Render(rootSrc, htmlSrc) {
-  return (user) => {
-    All(
-      rootSrc,
-      htmlSrc
-    )(([root, html]) => {
-      morphdom(root, html);
-      user(root);
-    });
-  };
+function Render($root, $html) {
+  const $all = All($root, $html);
+  const transport = TransportParent(function([
+    root,
+    html
+  ]) {
+    morphdom(root, html);
+    this.use(root);
+  });
+  return Event((t) => {
+    $all.event(transport.child(t));
+  });
 }
 
 export { Render };

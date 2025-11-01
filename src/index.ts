@@ -1,20 +1,22 @@
 import morphdom from "morphdom";
-import { All, EventType } from "silentium";
+import { All, Event, EventType, TransportParent } from "silentium";
 
 /**
  * Represents a function that renders HTML string into an element
  */
 export function Render(
-  rootSrc: EventType<HTMLElement>,
-  htmlSrc: EventType<string>,
+  $root: EventType<HTMLElement>,
+  $html: EventType<string>,
 ): EventType<HTMLElement> {
-  return (user) => {
-    All(
-      rootSrc,
-      htmlSrc,
-    )(([root, html]) => {
-      morphdom(root, html);
-      user(root);
-    });
-  };
+  const $all = All($root, $html);
+  const transport = TransportParent<[HTMLElement, string]>(function ([
+    root,
+    html,
+  ]) {
+    morphdom(root, html);
+    this.use(root);
+  });
+  return Event((t) => {
+    $all.event(transport.child(t));
+  });
 }
