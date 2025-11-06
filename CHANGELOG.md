@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.13](https://github.com/silentium-lab/silentium-morphdom/compare/v0.0.12...v0.0.13) (2025-11-06)
+
+
+### Bug Fixes
+
+* **main:** fix rendering ierarchy ([4459f35](https://github.com/silentium-lab/silentium-morphdom/commit/4459f35e69d8d169a1751bf904938b43a5685702))
+
 ### [0.0.12](https://github.com/silentium-lab/silentium-morphdom/compare/v0.0.11...v0.0.12) (2025-11-06)
 
 
