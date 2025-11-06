@@ -4,7 +4,12 @@ var morphdom = require('morphdom');
 var silentium = require('silentium');
 
 function Render($root, $html) {
-  const $all = silentium.All($root, $html);
+  const $rootChild = silentium.Applied($root, (root) => {
+    const div = document.createElement("div");
+    root.appendChild(root);
+    return div;
+  });
+  const $all = silentium.All($rootChild, $html);
   const transport = silentium.TransportParent(function([
     root,
     html

@@ -1,8 +1,13 @@
 import morphdom from 'morphdom';
-import { All, TransportParent, Event } from 'silentium';
+import { Applied, All, TransportParent, Event } from 'silentium';
 
 function Render($root, $html) {
-  const $all = All($root, $html);
+  const $rootChild = Applied($root, (root) => {
+    const div = document.createElement("div");
+    root.appendChild(root);
+    return div;
+  });
+  const $all = All($rootChild, $html);
   const transport = TransportParent(function([
     root,
     html
