@@ -2,18 +2,18 @@ import morphdom from 'morphdom';
 import { Applied, All, TransportParent, Event } from 'silentium';
 
 function Render($root, $html) {
+  let div = null;
   const $rootChild = Applied($root, (root) => {
-    const div = document.createElement("div");
+    div = document.createElement("div");
     root.appendChild(div);
     return div;
   });
-  const $all = All($rootChild, $html);
-  const transport = TransportParent(function([
-    root,
-    html
-  ]) {
-    morphdom(root, html);
-    this.use(root);
+  const $all = All($html, $rootChild);
+  const transport = TransportParent(function([html]) {
+    if (div !== null) {
+      div = morphdom(div, html);
+      this.use(div);
+    }
   });
   return Event((t) => {
     $all.event(transport.child(t));

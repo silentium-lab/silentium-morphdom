@@ -4,18 +4,18 @@ var morphdom = require('morphdom');
 var silentium = require('silentium');
 
 function Render($root, $html) {
+  let div = null;
   const $rootChild = silentium.Applied($root, (root) => {
-    const div = document.createElement("div");
+    div = document.createElement("div");
     root.appendChild(div);
     return div;
   });
-  const $all = silentium.All($rootChild, $html);
-  const transport = silentium.TransportParent(function([
-    root,
-    html
-  ]) {
-    morphdom(root, html);
-    this.use(root);
+  const $all = silentium.All($html, $rootChild);
+  const transport = silentium.TransportParent(function([html]) {
+    if (div !== null) {
+      div = morphdom(div, html);
+      this.use(div);
+    }
   });
   return silentium.Event((t) => {
     $all.event(transport.child(t));

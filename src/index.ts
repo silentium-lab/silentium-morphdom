@@ -8,18 +8,18 @@ export function Render(
   $root: EventType<HTMLElement>,
   $html: EventType<string>,
 ): EventType<HTMLElement> {
+  let div: any = null;
   const $rootChild = Applied($root, (root) => {
-    const div = document.createElement("div");
+    div = document.createElement("div");
     root.appendChild(div);
     return div;
   });
-  const $all = All($rootChild, $html);
-  const transport = TransportParent<[HTMLElement, string]>(function ([
-    root,
-    html,
-  ]) {
-    morphdom(root, html);
-    this.use(root);
+  const $all = All($html, $rootChild);
+  const transport = TransportParent<[string, HTMLElement]>(function ([html]) {
+    if (div !== null) {
+      div = morphdom(div, html);
+      this.use(div);
+    }
   });
   return Event((t) => {
     $all.event(transport.child(t));
