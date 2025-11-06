@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.12](https://github.com/silentium-lab/silentium-morphdom/compare/v0.0.11...v0.0.12) (2025-11-06)
+
+
+### Bug Fixes
+
+* **main:** render child element ([0c1d1ef](https://github.com/silentium-lab/silentium-morphdom/commit/0c1d1efa65b00a3057ec260490462bef285f61c7))
+
 ### [0.0.11](https://github.com/silentium-lab/silentium-morphdom/compare/v0.0.10...v0.0.11) (2025-11-02)
 
 
