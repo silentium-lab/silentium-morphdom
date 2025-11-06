@@ -6,7 +6,7 @@ var silentium = require('silentium');
 function Render($root, $html) {
   const $rootChild = silentium.Applied($root, (root) => {
     const div = document.createElement("div");
-    root.appendChild(root);
+    root.appendChild(div);
     return div;
   });
   const $all = silentium.All($rootChild, $html);

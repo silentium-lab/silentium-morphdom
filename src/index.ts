@@ -10,7 +10,7 @@ export function Render(
 ): EventType<HTMLElement> {
   const $rootChild = Applied($root, (root) => {
     const div = document.createElement("div");
-    root.appendChild(root);
+    root.appendChild(div);
     return div;
   });
   const $all = All($rootChild, $html);
