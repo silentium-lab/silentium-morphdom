@@ -1,13 +1,13 @@
 import morphdom from "morphdom";
-import { All, Applied, Event, EventType, TransportParent } from "silentium";
+import { All, Applied, Message, MessageType, TransportParent } from "silentium";
 
 /**
  * Represents a function that renders HTML string into an element
  */
 export function Render(
-  $root: EventType<HTMLElement>,
-  $html: EventType<string>,
-): EventType<HTMLElement> {
+  $root: MessageType<HTMLElement>,
+  $html: MessageType<string>,
+) {
   let div: any = null;
   const $rootChild = Applied($root, (root) => {
     div = document.createElement("div");
@@ -21,7 +21,7 @@ export function Render(
       this.use(div);
     }
   });
-  return Event((t) => {
-    $all.event(transport.child(t));
+  return Message<HTMLElement>((t) => {
+    $all.to(transport.child(t));
   });
 }
