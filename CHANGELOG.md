@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.15](https://github.com/silentium-lab/silentium-morphdom/compare/v0.0.14...v0.0.15) (2025-11-15)
+
+
+### Bug Fixes
+
+* **main:** messages instead of events ([b82fdc3](https://github.com/silentium-lab/silentium-morphdom/commit/b82fdc3a987c8c02df92f0065720e0cf1643dc72))
+
 ### [0.0.14](https://github.com/silentium-lab/silentium-morphdom/compare/v0.0.13...v0.0.14) (2025-11-06)
 
 
