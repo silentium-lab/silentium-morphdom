@@ -1,5 +1,5 @@
 import morphdom from 'morphdom';
-import { Applied, All, TransportParent, Event } from 'silentium';
+import { Applied, All, TransportParent, Message } from 'silentium';
 
 function Render($root, $html) {
   let div = null;
@@ -15,8 +15,8 @@ function Render($root, $html) {
       this.use(div);
     }
   });
-  return Event((t) => {
-    $all.event(transport.child(t));
+  return Message((t) => {
+    $all.to(transport.child(t));
   });
 }
 

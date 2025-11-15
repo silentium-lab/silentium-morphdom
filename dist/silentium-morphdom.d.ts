@@ -1,8 +1,9 @@
-import { EventType } from 'silentium';
+import * as silentium from 'silentium';
+import { MessageType } from 'silentium';
 
 /**
  * Represents a function that renders HTML string into an element
  */
-declare function Render($root: EventType<HTMLElement>, $html: EventType<string>): EventType<HTMLElement>;
+declare function Render($root: MessageType<HTMLElement>, $html: MessageType<string>): silentium.MessageImpl<HTMLElement>;
 
 export { Render };

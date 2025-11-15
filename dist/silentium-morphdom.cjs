@@ -17,8 +17,8 @@ function Render($root, $html) {
       this.use(div);
     }
   });
-  return silentium.Event((t) => {
-    $all.event(transport.child(t));
+  return silentium.Message((t) => {
+    $all.to(transport.child(t));
   });
 }
 
