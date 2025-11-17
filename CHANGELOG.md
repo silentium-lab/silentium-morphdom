@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.16](https://github.com/silentium-lab/silentium-morphdom/compare/v0.0.15...v0.0.16) (2025-11-17)
+
+
+### Bug Fixes
+
+* **main:** refactor messages ([7213add](https://github.com/silentium-lab/silentium-morphdom/commit/7213add2360d7c5e5208cca31606ec65a0a54fd8))
+
 ### [0.0.15](https://github.com/silentium-lab/silentium-morphdom/compare/v0.0.14...v0.0.15) (2025-11-15)
 
 
