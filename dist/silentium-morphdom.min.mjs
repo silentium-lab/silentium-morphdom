@@ -1,2 +1,2 @@
-import t from"morphdom";import{Applied as n,All as o,TransportParent as e,Message as i}from"silentium";function l(l,m){let r=null;const u=n(l,t=>(r=document.createElement("div"),t.appendChild(r),r)),c=o(m,u),d=e(function([n]){null!==r&&(r=t(r,n),this.use(r))});return i(t=>{c.to(d.child(t))})}export{l as Render};
+import t from"morphdom";import{Applied as e,All as n,TapParent as i,Message as o}from"silentium";function l(l,m){let r=null;const p=e(l,t=>(r=document.createElement("div"),t.appendChild(r),r)),u=n(m,p),c=i(function([e]){null!==r&&(r=t(r,e),this.use(r))});return o(t=>{u.pipe(c.child(t))})}export{l as Render};
 //# sourceMappingURL=silentium-morphdom.min.mjs.map

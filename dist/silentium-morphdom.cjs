@@ -11,14 +11,14 @@ function Render($root, $html) {
     return div;
   });
   const $all = silentium.All($html, $rootChild);
-  const transport = silentium.TransportParent(function([html]) {
+  const transport = silentium.TapParent(function([html]) {
     if (div !== null) {
       div = morphdom(div, html);
       this.use(div);
     }
   });
   return silentium.Message((t) => {
-    $all.to(transport.child(t));
+    $all.pipe(transport.child(t));
   });
 }
 

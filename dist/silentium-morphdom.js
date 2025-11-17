@@ -1,5 +1,5 @@
 import morphdom from 'morphdom';
-import { Applied, All, TransportParent, Message } from 'silentium';
+import { Applied, All, TapParent, Message } from 'silentium';
 
 function Render($root, $html) {
   let div = null;
@@ -9,14 +9,14 @@ function Render($root, $html) {
     return div;
   });
   const $all = All($html, $rootChild);
-  const transport = TransportParent(function([html]) {
+  const transport = TapParent(function([html]) {
     if (div !== null) {
       div = morphdom(div, html);
       this.use(div);
     }
   });
   return Message((t) => {
-    $all.to(transport.child(t));
+    $all.pipe(transport.child(t));
   });
 }
 
