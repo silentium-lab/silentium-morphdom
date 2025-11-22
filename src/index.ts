@@ -1,5 +1,5 @@
 import morphdom from "morphdom";
-import { All, Applied, Message, MessageType, TapParent } from "silentium";
+import { All, Applied, Message, MessageType } from "silentium";
 
 /**
  * Represents a function that renders HTML string into an element
@@ -15,13 +15,12 @@ export function Render(
     return div;
   });
   const $all = All($html, $rootChild);
-  const transport = TapParent<[string, HTMLElement]>(function ([html]) {
-    if (div !== null) {
-      div = morphdom(div, html);
-      this.use(div);
-    }
-  });
-  return Message<HTMLElement>((t) => {
-    $all.pipe(transport.child(t));
+  return Message<HTMLElement>(function RenderImpl(r) {
+    $all.then(([html]) => {
+      if (div !== null) {
+        div = morphdom(div, html);
+        r(div);
+      }
+    });
   });
 }
