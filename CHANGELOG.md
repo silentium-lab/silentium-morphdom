@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.17](https://github.com/silentium-lab/silentium-morphdom/compare/v0.0.16...v0.0.17) (2025-11-22)
+
+
+### Bug Fixes
+
+* **main:** thenable render ([e42facf](https://github.com/silentium-lab/silentium-morphdom/commit/e42facf8b75de57f8f8de1d27895d8c68657c952))
+
 ### [0.0.16](https://github.com/silentium-lab/silentium-morphdom/compare/v0.0.15...v0.0.16) (2025-11-17)
 
 
