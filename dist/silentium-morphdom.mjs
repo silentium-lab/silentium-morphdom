@@ -12,7 +12,17 @@ function Render($root, $html) {
     Message(function RenderImpl(resolve, reject) {
       $all.then(([html, div]) => {
         try {
-          resolve(morphdom(div, html));
+          resolve(
+            morphdom(div, html, {
+              childrenOnly: true,
+              onBeforeElUpdated: function(fromEl, toEl) {
+                if (fromEl.isEqualNode(toEl)) {
+                  return false;
+                }
+                return true;
+              }
+            })
+          );
         } catch (e) {
           reject("Error in Render function from morphdom " + e.message);
         }

@@ -18,7 +18,18 @@ export function Render(
     Message<HTMLElement>(function RenderImpl(resolve, reject) {
       $all.then(([html, div]) => {
         try {
-          resolve(morphdom(div, html) as HTMLElement);
+          resolve(
+            morphdom(div, html, {
+              childrenOnly: true,
+              onBeforeElUpdated: function (fromEl, toEl) {
+                if (fromEl.isEqualNode(toEl)) {
+                  return false;
+                }
+
+                return true;
+              },
+            }) as HTMLElement,
+          );
         } catch (e: any) {
           reject("Error in Render function from morphdom " + e.message);
         }

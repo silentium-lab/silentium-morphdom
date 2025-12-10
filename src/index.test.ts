@@ -92,4 +92,15 @@ describe("Render function", () => {
     htmlMessage.use("Changed!");
     expect((await resultMessage).outerHTML).toBe("<div>Changed!</div>");
   });
+
+  it("section tag", async () => {
+    const currentHtml = "<section>Initial</section>";
+
+    const rootMessage = Of(rootElement);
+    const resultMessage = Render(rootMessage, Of(currentHtml));
+
+    expect((await resultMessage).outerHTML).toBe(
+      "<div><section>Initial</section></div>",
+    );
+  });
 });
