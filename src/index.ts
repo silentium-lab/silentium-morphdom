@@ -8,18 +8,16 @@ export function Render(
   $root: MessageType<HTMLElement>,
   $html: MessageType<string>,
 ) {
-  let div: any = null;
   const $rootChild = Applied($root, (root) => {
-    div = document.createElement("div");
+    const div = document.createElement("div");
     root.appendChild(div);
     return div;
   });
   const $all = All($html, $rootChild);
   return Message<HTMLElement>(function RenderImpl(r) {
-    $all.then(([html]) => {
+    $all.then(([html, div]) => {
       if (div !== null) {
-        div = morphdom(div, html);
-        r(div);
+        r(morphdom(div, html) as HTMLElement);
       }
     });
   });

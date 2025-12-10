@@ -2,18 +2,16 @@ import morphdom from 'morphdom';
 import { Applied, All, Message } from 'silentium';
 
 function Render($root, $html) {
-  let div = null;
   const $rootChild = Applied($root, (root) => {
-    div = document.createElement("div");
+    const div = document.createElement("div");
     root.appendChild(div);
     return div;
   });
   const $all = All($html, $rootChild);
   return Message(function RenderImpl(r) {
-    $all.then(([html]) => {
+    $all.then(([html, div]) => {
       if (div !== null) {
-        div = morphdom(div, html);
-        r(div);
+        r(morphdom(div, html));
       }
     });
   });

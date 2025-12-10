@@ -4,18 +4,16 @@ var morphdom = require('morphdom');
 var silentium = require('silentium');
 
 function Render($root, $html) {
-  let div = null;
   const $rootChild = silentium.Applied($root, (root) => {
-    div = document.createElement("div");
+    const div = document.createElement("div");
     root.appendChild(div);
     return div;
   });
   const $all = silentium.All($html, $rootChild);
   return silentium.Message(function RenderImpl(r) {
-    $all.then(([html]) => {
+    $all.then(([html, div]) => {
       if (div !== null) {
-        div = morphdom(div, html);
-        r(div);
+        r(morphdom(div, html));
       }
     });
   });
