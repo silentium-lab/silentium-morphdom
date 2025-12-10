@@ -12,19 +12,19 @@ function Render($root, $html) {
   const $all = silentium.All($html, $rootChild);
   return silentium.Shared(
     silentium.Message(function RenderImpl(resolve, reject) {
+      let updatedDiv = null;
       $all.then(([html, div]) => {
         try {
-          resolve(
-            morphdom(div, html, {
-              childrenOnly: true,
-              onBeforeElUpdated: function(fromEl, toEl) {
-                if (fromEl.isEqualNode(toEl)) {
-                  return false;
-                }
-                return true;
+          updatedDiv = morphdom(updatedDiv ?? div, html, {
+            childrenOnly: false,
+            onBeforeElUpdated: function(fromEl, toEl) {
+              if (fromEl.isEqualNode(toEl)) {
+                return false;
               }
-            })
-          );
+              return true;
+            }
+          });
+          resolve(updatedDiv);
         } catch (e) {
           reject("Error in Render function from morphdom " + e.message);
         }

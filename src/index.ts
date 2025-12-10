@@ -16,20 +16,20 @@ export function Render(
   const $all = All($html, $rootChild);
   return Shared(
     Message<HTMLElement>(function RenderImpl(resolve, reject) {
+      let updatedDiv: HTMLElement | null = null;
       $all.then(([html, div]) => {
         try {
-          resolve(
-            morphdom(div, html, {
-              childrenOnly: true,
-              onBeforeElUpdated: function (fromEl, toEl) {
-                if (fromEl.isEqualNode(toEl)) {
-                  return false;
-                }
+          updatedDiv = morphdom(updatedDiv ?? div, html, {
+            childrenOnly: false,
+            onBeforeElUpdated: function (fromEl, toEl) {
+              if (fromEl.isEqualNode(toEl)) {
+                return false;
+              }
 
-                return true;
-              },
-            }) as HTMLElement,
-          );
+              return true;
+            },
+          }) as HTMLElement;
+          resolve(updatedDiv);
         } catch (e: any) {
           reject("Error in Render function from morphdom " + e.message);
         }
