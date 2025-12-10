@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.24](https://github.com/silentium-lab/silentium-morphdom/compare/v0.0.23...v0.0.24) (2025-12-10)
+
+
+### Bug Fixes
+
+* **main:** morphdom optimiz ([4dcb7d2](https://github.com/silentium-lab/silentium-morphdom/commit/4dcb7d23a62e96711012e044a804c0246bc2a406))
+
 ### [0.0.23](https://github.com/silentium-lab/silentium-morphdom/compare/v0.0.22...v0.0.23) (2025-12-10)
 
 
