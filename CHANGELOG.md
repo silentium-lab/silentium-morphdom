@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.22](https://github.com/silentium-lab/silentium-morphdom/compare/v0.0.21...v0.0.22) (2025-12-10)
+
+
+### Bug Fixes
+
+* **main:** added shared to render function ([490311a](https://github.com/silentium-lab/silentium-morphdom/commit/490311a5d1077a4859f413a3e045cf71da0cab3d))
+* **main:** fixed eslint mistake and extra message import ([8d34e6f](https://github.com/silentium-lab/silentium-morphdom/commit/8d34e6f3d316a61ece3b3763a73b4a1a90ec3526))
+
 ### [0.0.21](https://github.com/silentium-lab/silentium-morphdom/compare/v0.0.20...v0.0.21) (2025-12-10)
 
 ### [0.0.20](https://github.com/silentium-lab/silentium-morphdom/compare/v0.0.19...v0.0.20) (2025-12-10)
