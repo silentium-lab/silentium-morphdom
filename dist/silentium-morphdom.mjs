@@ -1,5 +1,5 @@
 import morphdom from 'morphdom';
-import { Applied, All, Message } from 'silentium';
+import { Applied, All, Shared, Message } from 'silentium';
 
 function Render($root, $html) {
   const $rootChild = Applied($root, (root) => {
@@ -8,13 +8,15 @@ function Render($root, $html) {
     return div;
   });
   const $all = All($html, $rootChild);
-  return Message(function RenderImpl(r) {
+  return Shared(Message(function RenderImpl(resolve, reject) {
     $all.then(([html, div]) => {
-      if (div !== null) {
-        r(morphdom(div, html));
+      try {
+        resolve(morphdom(div, html));
+      } catch (e) {
+        reject("Error in Render function from morphdom " + e.message);
       }
     });
-  });
+  }));
 }
 
 export { Render };

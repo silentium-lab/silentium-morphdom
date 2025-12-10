@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { Render } from "./index";
-import { Message, Of } from "silentium";
+import { Late, Message, Of } from "silentium";
 
 vi.mock("morphdom", () => ({
   default: vi.fn((node, html) => {
@@ -81,36 +81,15 @@ describe("Render function", () => {
   });
 
   it("should update content when HTML message changes", async () => {
-    let currentHtml = "<div>Initial</div>";
-    const htmlMessage = Message<string>((emit) => {
-      emit(currentHtml);
-
-      setTimeout(() => {
-        currentHtml = "<div>Updated</div>";
-        emit(currentHtml);
-      }, 10);
-    });
+    let currentHtml = "Initial";
+    const htmlMessage = Late(currentHtml);
 
     const rootMessage = Of(rootElement);
     const resultMessage = Render(rootMessage, htmlMessage);
 
-    const results: HTMLElement[] = [];
-    let resolvePromise: (value: void) => void;
-    const promise = new Promise<void>((resolve) => {
-      resolvePromise = resolve;
-    });
+    expect((await resultMessage).outerHTML).toBe('<div>Initial</div>');
 
-    setTimeout(() => {
-      resolvePromise();
-    }, 100);
-
-    resultMessage.then((element) => {
-      results.push(element);
-    });
-
-    await promise;
-
-    expect(results.length).toBeGreaterThanOrEqual(1);
-    expect(results[0].innerHTML).toBe("<div>Updated</div>");
+    htmlMessage.use('Changed!');
+    expect((await resultMessage).outerHTML).toBe('<div>Changed!</div>');
   });
 });

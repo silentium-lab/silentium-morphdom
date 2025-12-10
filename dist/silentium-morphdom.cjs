@@ -10,13 +10,15 @@ function Render($root, $html) {
     return div;
   });
   const $all = silentium.All($html, $rootChild);
-  return silentium.Message(function RenderImpl(r) {
+  return silentium.Shared(silentium.Message(function RenderImpl(resolve, reject) {
     $all.then(([html, div]) => {
-      if (div !== null) {
-        r(morphdom(div, html));
+      try {
+        resolve(morphdom(div, html));
+      } catch (e) {
+        reject("Error in Render function from morphdom " + e.message);
       }
     });
-  });
+  }));
 }
 
 exports.Render = Render;

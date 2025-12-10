@@ -1,2 +1,2 @@
-import n from"morphdom";import{Applied as t,All as o,Message as e}from"silentium";function r(r,m){const i=t(r,n=>{const t=document.createElement("div");return n.appendChild(t),t}),u=o(m,i);return e(function(t){u.then(([o,e])=>{null!==e&&t(n(e,o))})})}export{r as Render};
+import r from"morphdom";import{Applied as n,All as o,Shared as t,Message as e}from"silentium";function m(m,i){const c=n(m,r=>{const n=document.createElement("div");return r.appendChild(n),n}),d=o(i,c);return t(e(function(n,o){d.then(([t,e])=>{try{n(r(e,t))}catch(r){o("Error in Render function from morphdom "+r.message)}})}))}export{m as Render};
 //# sourceMappingURL=silentium-morphdom.min.mjs.map
