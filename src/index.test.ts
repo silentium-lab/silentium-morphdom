@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { Render } from "./index";
-import { Late, Message, Of } from "silentium";
+import { Late, Of } from "silentium";
 
 vi.mock("morphdom", () => ({
   default: vi.fn((node, html) => {
@@ -81,15 +81,15 @@ describe("Render function", () => {
   });
 
   it("should update content when HTML message changes", async () => {
-    let currentHtml = "Initial";
+    const currentHtml = "Initial";
     const htmlMessage = Late(currentHtml);
 
     const rootMessage = Of(rootElement);
     const resultMessage = Render(rootMessage, htmlMessage);
 
-    expect((await resultMessage).outerHTML).toBe('<div>Initial</div>');
+    expect((await resultMessage).outerHTML).toBe("<div>Initial</div>");
 
-    htmlMessage.use('Changed!');
-    expect((await resultMessage).outerHTML).toBe('<div>Changed!</div>');
+    htmlMessage.use("Changed!");
+    expect((await resultMessage).outerHTML).toBe("<div>Changed!</div>");
   });
 });

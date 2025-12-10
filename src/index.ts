@@ -14,13 +14,15 @@ export function Render(
     return div;
   });
   const $all = All($html, $rootChild);
-  return Shared(Message<HTMLElement>(function RenderImpl(resolve, reject) {
-    $all.then(([html, div]) => {
-      try {
-        resolve(morphdom(div, html) as HTMLElement);
-      } catch (e: any) {
-        reject('Error in Render function from morphdom ' + e.message)
-      }
-    });
-  }));
+  return Shared(
+    Message<HTMLElement>(function RenderImpl(resolve, reject) {
+      $all.then(([html, div]) => {
+        try {
+          resolve(morphdom(div, html) as HTMLElement);
+        } catch (e: any) {
+          reject("Error in Render function from morphdom " + e.message);
+        }
+      });
+    }),
+  );
 }

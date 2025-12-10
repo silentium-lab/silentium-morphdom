@@ -8,15 +8,17 @@ function Render($root, $html) {
     return div;
   });
   const $all = All($html, $rootChild);
-  return Shared(Message(function RenderImpl(resolve, reject) {
-    $all.then(([html, div]) => {
-      try {
-        resolve(morphdom(div, html));
-      } catch (e) {
-        reject("Error in Render function from morphdom " + e.message);
-      }
-    });
-  }));
+  return Shared(
+    Message(function RenderImpl(resolve, reject) {
+      $all.then(([html, div]) => {
+        try {
+          resolve(morphdom(div, html));
+        } catch (e) {
+          reject("Error in Render function from morphdom " + e.message);
+        }
+      });
+    })
+  );
 }
 
 export { Render };
