@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.27](https://github.com/silentium-lab/silentium-morphdom/compare/v0.0.26...v0.0.27) (2026-04-01)
+
+
+### Bug Fixes
+
+* silence ([0db6d7a](https://github.com/silentium-lab/silentium-morphdom/commit/0db6d7a79a305e4e291f6f9dd8dde8adf0d0940e))
+
 ### [0.0.26](https://github.com/silentium-lab/silentium-morphdom/compare/v0.0.25...v0.0.26) (2026-04-01)
 
 ### [0.0.25](https://github.com/silentium-lab/silentium-morphdom/compare/v0.0.24...v0.0.25) (2026-03-29)
